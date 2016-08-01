@@ -16,7 +16,6 @@ data = genfromtxt('iris.txt', delimiter=',', usecols=(0,1,2,3), dtype=float)
 name = genfromtxt('iris.txt', delimiter=',', usecols=(4), dtype=str)
 
 # get the train data and test data
-names = ['setosa', 'versicolor', 'virginica']
 t = zeros(len(name))
 t[name == 'setosa'] = 0
 t[name == 'versicolor'] = 1
