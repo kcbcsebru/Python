@@ -13,7 +13,7 @@ def HistGraphGray(image, color):
     hist = hist * 220 / m
     for h in range(256): 
        	n = int(hist[h])
-        cv2.line(histGraph,(h,256), (h,256-n), color)        
+        cv2.line(histGraph,(h,255), (h,255-n), color)        
     return histGraph; 
   
 # get the hist graph of a color image
