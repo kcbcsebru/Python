@@ -72,5 +72,7 @@ if __name__ == '__main__':
 	# get three channels together
 	histGraph2 = HistGraphColor(img2)
 	cv2.imshow("Hist Color", histGraph2)
-	cv2.waitKey(0)    
-	cv2.destroyAllWindows() 
+	while(1):
+		if cv2.waitKey(0) & 0xFF == ord('q'): 
+			cv2.destroyAllWindows()
+			break
