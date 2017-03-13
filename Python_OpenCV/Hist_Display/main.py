@@ -6,16 +6,16 @@ import cv2
 import numpy as np
 
 # get the hist graph of a gray image
-def HistGraphGray(image, color):    
-    hist= cv2.calcHist([image], [0], None, [256], [0.0,255.0])       
-    histGraph = np.zeros([256,256,3], np.uint8)
-    m = max(hist)
-    hist = hist * 220 / m
-    for h in range(256): 
-       	n = int(hist[h])
-        cv2.line(histGraph,(h,255), (h,255-n), color)        
-    return histGraph; 
-  
+def HistGraphGray(image, color):
+	hist= cv2.calcHist([image], [0], None, [256], [0.0,255.0])       
+	histGraph = np.zeros([256,256,3], np.uint8)
+	m = max(hist)
+	hist = hist * 220 / m
+	for h in range(256):
+		n = int(hist[h])
+		cv2.line(histGraph,(h,255), (h,255-n), color)
+		return histGraph
+
 # get the hist graph of a color image
 def HistGraphColor(image):
 	histGraph = np.zeros([256,256,3], np.uint8)
@@ -72,5 +72,8 @@ if __name__ == '__main__':
 	# get three channels together
 	histGraph2 = HistGraphColor(img2)
 	cv2.imshow("Hist Color", histGraph2)
-	cv2.waitKey(0)    
-	cv2.destroyAllWindows() 
+	while(1):
+		if cv2.waitKey(0) & 0xFF == ord('q'): 
+			cv2.destroyAllWindows()
+			break
+	
